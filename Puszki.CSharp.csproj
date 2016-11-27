@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\CanCollider.cs" />
     <Compile Include="Assets\Scripts\Shoot.cs" />
     <Compile Include="Assets\Scripts\SpawnCanTower.cs" />
+    <Compile Include="Assets\Scripts\UIControl.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

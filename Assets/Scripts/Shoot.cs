@@ -4,11 +4,6 @@ using System.Collections;
 
 public class Shoot : MonoBehaviour {
 
-    // UI info
-    public Text ctrlInfoLabel;
-    public Text ctrlInfoShoot;
-    public Text ctrlInfoMovement;
-
     public float x;            // spawning projectiles x
     public float y;            // spawning projectiles y
     public float z;            // spawning projectiles z
@@ -21,11 +16,7 @@ public class Shoot : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        ctrlInfoLabel.text = "Key bindings:";
-        ctrlInfoShoot.text = "Shoot Ball: Space";
-        ctrlInfoMovement.text = "Movement: Arrows";
-
-        audio = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>(); // map audio source to component
     }
 	
 	// Update is called once per frame

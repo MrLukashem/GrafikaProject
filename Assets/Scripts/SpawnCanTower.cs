@@ -4,16 +4,7 @@ using System.Collections;
 
 public class SpawnCanTower : MonoBehaviour {
 
-
-    // UI info
-    public Text ctrlInfoIncreaseRows;
-    public Text ctrlInfoDecreaseRows;
-    public Text ctrlInfoSpawnPyramid;
-
-    public Text rowMax;
-    public Text rowMin;
     public Text rowCountText;
-    private string info = "Rows to spawn: ";
 
     public float horOffset;     // x of the can pyramids middle
     public float vertOffset;    // y of the can pyramids bottom
@@ -30,14 +21,7 @@ public class SpawnCanTower : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-        ctrlInfoDecreaseRows.text = "Increase rows: 1";
-        ctrlInfoIncreaseRows.text = "Decrease rows: 2";
-        ctrlInfoSpawnPyramid.text = "Spawn Pyramid: 3";
-
-        rowMin.text = "Minimum rows of cans: " + minRows;
-        rowMax.text = "Maximum rows of cans: " + maxRows;
-        rowCountText.text = info + rows; // display info on current row count on start 
+        rowCountText.text = rows + " (" + minRows + "-" + maxRows + ")"; // display info on current row count on start 
 	}
 	
 	// Update is called once per frame
@@ -72,13 +56,13 @@ public class SpawnCanTower : MonoBehaviour {
     // decrease number of rows if current is bigger than one and display info
     void DecreaseRows(){
         rows = rows>minRows ? --rows : minRows;
-        rowCountText.text = info + rows;
+        rowCountText.text = rows + " (" + minRows + "-" + maxRows + ")"; // display info on current row count
     }
 
     // increase number of rows and display info
     void IncreaseRows() {
         rows = rows<maxRows ? ++rows : maxRows;
-        rowCountText.text = info + rows;
+        rowCountText.text = rows + " (" + minRows + "-" + maxRows + ")"; // display info on current row count
     }
 
     // destroy all cans and projectiles
