@@ -18,10 +18,10 @@ public class Shoot : MonoBehaviour {
     void Start () {
         audio = GetComponent<AudioSource>(); // map audio source to component
     }
-	
-	// Update is called once per frame
-	void Update () {
-        bool shoot = Input.GetButtonDown("Jump"); // get input
+
+    // Update is called once per frame
+    void Update() {
+        bool shoot = Input.GetButtonDown("Fire1"); // get input
         if (shoot) ShootProjectile();             // shoot
 
         // move 'player' pistol x and y
@@ -30,16 +30,13 @@ public class Shoot : MonoBehaviour {
 
         x += moveHor * speedOfMove * Time.deltaTime;                   // move point of ball spawning according to input
         y += moveVert * speedOfMove * Time.deltaTime;                  // move point of ball spawning according to input
-        Vector3 movement = new Vector3(moveHor, 0.0f, -moveVert);      // setup vector to move pistol model
-        transform.Translate(movement * speedOfMove * Time.deltaTime);  // move pistol model with vector
-    
     }
 
     // instantiates and applies force to the projectile
     void ShootProjectile()
     {
-        GameObject projectile = (GameObject)Instantiate(prefab, new Vector3(x, y, z), Quaternion.identity); // instantiate projectile
-        projectile.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, speedOfShot));                // add force to the instantiated projectile
+        GameObject projectile = (GameObject)Instantiate(prefab, transform.position, transform.rotation); // instantiate projectile
+        projectile.GetComponent<Rigidbody>().AddForce(transform.up * speedOfShot);                // add force to the instantiated projectile
         audio.PlayOneShot(shot, 0.7F); // play a sound
     }
 }
