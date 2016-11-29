@@ -46,7 +46,7 @@ public class SpawnCanTower : MonoBehaviour {
             for (int j=0; j<=i; j++)
             {
                 //Debug.Log("j "+j+"; x = "+x);                                   // debug
-                Instantiate(can, new Vector3(x, y, 0), Quaternion.identity);    // spawn can at the appropriate position
+                Instantiate(can, new Vector3(x, y, 0), Quaternion.Euler(90, 0, 0));    // spawn can at the appropriate position
                 x += canWidth + canGap;                                         // go to next right item in the row
             }
             y -= canHeight; // go to next row below
